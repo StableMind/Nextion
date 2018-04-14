@@ -1,22 +1,22 @@
-#import modules
+#import module: install with 'pip install pyserial'
 import serial
 #Set end of file
 eof = "\xff\xff\xff"
 
 #setup connection
-ser = serial.Serial(
+con = serial.Serial(
 
     port='/dev/ttyAMA0',
     baudrate=9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
     bytesize=serial.EIGHTBITS,
-    timeout=1
+    
 )
 
-#loop waiting for hex input
-while 1:
+#loop waiting for input from nextion
+while True:
     #get the data from the nextion display
-    x = ser.readline()
-    #print output with repr (returns a string containing a printable representation of an object)
-    print "Recieved:" + repr(x)
+    readTxt = con.readline()
+    #print output to screen with repr (returns a string containing a printable representation of an object)
+    print "Data Recieved:" + repr(readText)
