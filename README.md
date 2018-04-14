@@ -1,2 +1,2 @@
 # Nextion
-Raspberry Pi Python files for reading and writing with Nextion
+Raspberry Pi Python files for reading data from a Nextion screen
