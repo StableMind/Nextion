@@ -1,15 +1,20 @@
 
+#import module: install with 'pip install pyserial'
 import serial
-txt="test text"
+#Set end of file
+eof = "\xff\xff\xff"
+#setup text for writing
+txt = 'Hello wold'
 
-ser = serial.Serial(
-  port='/dev/ttyAMA0',
-  baudrate = 9600,
-  parity=serial.PARITY_NONE,
-  stopbits=serial.STOPBITS_ONE,
-  bytesize=serial.EIGHTBITS,
-  timeout=1
+#setup connection
+con = serial.Serial(
+
+    port='/dev/ttyAMA0',
+    baudrate=9600,
+    parity=serial.PARITY_NONE,
+    stopbits=serial.STOPBITS_ONE,
+    bytesize=serial.EIGHTBITS,
+    
 )
-
-EndCom = "\xff\xff\xff"
-ser.write('page1.t0.txt=txt'+EndCom)
+#write text to Page 0 t0 txt variable(check the id of your text box) plus EOF
+con.write('page0.t0.txt='txt+eof)
