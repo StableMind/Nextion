@@ -1,4 +1,4 @@
-#import module: install with 'pip install pyserial'
+#import module: install with 'easy_install -U pyserial'
 import serial
 #Set end of file
 eof = "\xff\xff\xff"
